@@ -134,10 +134,10 @@ const Hero = () => {
           transition={{ delay: 1.2 }}
           className="mt-8 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 justify-center"
         >
-          <button className="bg-white text-black px-12 py-4 rounded-full font-display text-2xl hover:bg-zinc-200 transition-colors">
+          <button className="bg-white text-black px-12 py-4 rounded-full font-sans font-medium hover:bg-zinc-200 transition-colors">
             START EARNING
           </button>
-          <button className="bg-transparent border-2 border-white/30 text-white px-12 py-4 rounded-full font-display text-2xl hover:bg-white hover:text-black transition-colors">
+          <button className="bg-transparent border border-white/30 text-white px-12 py-4 rounded-full font-sans font-medium hover:bg-white hover:text-black transition-colors">
             LAUNCH CAMPAIGN
           </button>
         </motion.div>
@@ -155,20 +155,20 @@ const Hero = () => {
 };
 
 const ProcessStep = ({ icon: Icon, title, desc, dashPreview, index }: { icon: any, title: string, desc: string, dashPreview?: ReactNode, index: number }) => (
-  <section className={`py-32 px-6 lg:px-12 grid lg:grid-cols-2 gap-20 items-center ${index % 2 !== 0 ? 'bg-ink text-paper' : 'bg-paper'}`}>
+  <section className={`py-32 px-6 lg:px-12 grid lg:grid-cols-2 gap-20 items-center ${index % 2 !== 0 ? 'bg-ink text-paper' : 'bg-paper text-ink'}`}>
     <motion.div 
       initial={{ opacity: 0, x: index % 2 === 0 ? -40 : 40 }}
       whileInView={{ opacity: 1, x: 0 }}
       viewport={{ once: true }}
-      className={index % 2 !== 0 ? 'lg:order-2' : ''}
+      className={`space-y-6 ${index % 2 !== 0 ? 'lg:order-2' : ''}`}
     >
       <div className={`mb-8 p-4 inline-block rounded-2xl ${index % 2 !== 0 ? 'bg-paper text-ink' : 'bg-ink text-paper'}`}>
         <Icon size={32} />
       </div>
-      <h2 className="font-display text-7xl md:text-8xl tracking-tighter mb-8 leading-none">
+      <h2 className="font-display text-7xl md:text-8xl tracking-tighter leading-none mb-8">
         {title}
       </h2>
-      <p className="text-xl opacity-60 font-light max-w-md">
+      <p className="font-sans text-xl opacity-60 max-w-md font-light text-balance leading-relaxed">
         {desc}
       </p>
     </motion.div>
@@ -177,7 +177,7 @@ const ProcessStep = ({ icon: Icon, title, desc, dashPreview, index }: { icon: an
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
-      className={`relative aspect-square md:aspect-video lg:aspect-square bg-zinc-100 dark:bg-zinc-900 border border-line rounded-[2rem] overflow-hidden flex items-center justify-center p-8 ${index % 2 !== 0 ? 'bg-zinc-800 border-white/10' : ''}`}
+      className={`relative aspect-square md:aspect-video lg:aspect-square bg-dash-bg border border-white/10 rounded-[2rem] overflow-hidden flex items-center justify-center p-8`}
     >
       {dashPreview}
     </motion.div>
@@ -186,94 +186,110 @@ const ProcessStep = ({ icon: Icon, title, desc, dashPreview, index }: { icon: an
 
 const ConnectDash = () => (
   <div className="w-full space-y-4">
-    <div className="border border-line p-6 rounded-2xl bg-white flex items-center justify-between">
+    <div className="border border-white/10 p-6 rounded-2xl bg-dash-card flex items-center justify-between text-white shadow-xl shadow-black/50">
       <div className="flex items-center gap-4">
-        <div className="w-10 h-10 bg-black rounded-full grid place-items-center"><Instagram size={20} color="white" /></div>
+        <div className="w-10 h-10 bg-black border border-white/10 rounded-full grid place-items-center"><Instagram size={20} className="text-pink-500" /></div>
         <div>
-          <p className="font-mono text-[10px] opacity-40 uppercase">Metadata</p>
-          <p className="font-display text-xl text-ink">@SocialHandle</p>
+          <p className="font-sans font-medium text-sm text-white">Link Socials</p>
+          <p className="font-sans text-xs text-zinc-500">Connect primary platform</p>
         </div>
       </div>
-      <div className="bg-ink text-paper px-4 py-2 rounded-full font-mono text-[10px] uppercase">Synced</div>
-    </div>
-    <div className="border border-line p-6 rounded-2xl bg-white/50 flex items-center justify-between opacity-50 text-ink">
-      <div className="flex items-center gap-4">
-        <div className="w-10 h-10 bg-black/20 rounded-full" />
-        <div className="h-4 w-32 bg-black/10 rounded" />
+      <div className="bg-pink-500/10 border border-pink-500/20 text-pink-400 px-3 py-1.5 rounded-full font-sans text-[10px] uppercase font-semibold flex items-center gap-2">
+        <CheckCircle2 size={12} />
+        IG: @CLIPNICTEAM
       </div>
-      <div className="h-8 w-20 bg-black/10 rounded-full" />
     </div>
-    <button className="w-full py-4 border-2 border-dashed border-line rounded-2xl font-mono text-xs uppercase hover:bg-ink hover:text-paper transition-all text-ink">
-      + Aggregate New Profile
-    </button>
+
+    <div className="border border-white/10 p-6 rounded-2xl bg-dash-card flex items-center justify-between text-white shadow-xl shadow-black/50 opacity-60">
+      <div className="flex items-center gap-4">
+        <div className="w-10 h-10 bg-[#5865F2] rounded-full grid place-items-center"><div className="w-5 h-5 bg-white rounded-full mask-clipping" /></div>
+        <div>
+          <p className="font-sans font-medium text-sm text-white">Discord Verification</p>
+          <p className="font-sans text-xs text-zinc-500">Join server to confirm identity</p>
+        </div>
+      </div>
+      <div className="text-emerald-400 px-3 py-1.5 font-sans text-sm font-medium flex items-center gap-2">
+        <CheckCircle2 size={16} />
+        Verified
+      </div>
+    </div>
   </div>
 );
 
 const SubmissionDash = () => (
-  <div className="w-full max-w-md space-y-6">
-    <div className="relative">
-      <input 
-        disabled 
-        value="/p/viral_content_id/" 
-        className="w-full bg-transparent border-b-2 border-current py-4 font-mono text-2xl focus:outline-none placeholder:opacity-20" 
-      />
-      <div className="absolute right-0 top-1/2 -translate-y-1/2">
-        <CheckCircle2 />
-      </div>
-    </div>
-    <div className="bg-ink text-paper dark:bg-paper dark:text-ink p-6 rounded-2xl flex justify-between items-center hover:scale-[1.02] transition-transform cursor-pointer">
-      <span className="font-display text-2xl uppercase tracking-tight">Post for Review</span>
-      <ArrowRight />
+  <div className="w-full max-w-md space-y-4">
+    <div className="bg-dash-card border border-white/10 p-6 rounded-2xl">
+        <p className="font-sans text-xs text-zinc-500 mb-2 uppercase tracking-wide">Submit Clip URL</p>
+        <div className="relative">
+          <input 
+            disabled 
+            value="https://tiktok.com/@clipnic/video/123..." 
+            className="w-full bg-black border border-white/10 rounded-xl px-4 py-3 font-mono text-sm focus:outline-none text-zinc-300" 
+          />
+          <div className="absolute right-3 top-1/2 -translate-y-1/2">
+            <CheckCircle2 className="text-emerald-500" size={16} />
+          </div>
+        </div>
     </div>
     <div className="grid grid-cols-2 gap-4">
-      <div className="p-4 border border-line rounded-xl">
-        <p className="font-mono text-[10px] opacity-40">Status</p>
-        <p className="font-bold">Analyzing Velocity</p>
+      <div className="p-5 bg-dash-card border border-white/10 rounded-2xl">
+        <p className="font-sans text-[11px] text-zinc-500 uppercase tracking-widest font-medium mb-1">Status</p>
+        <p className="font-sans font-medium text-emerald-400">Yield Generating</p>
       </div>
-      <div className="p-4 border border-line rounded-xl">
-        <p className="font-mono text-[10px] opacity-40">Est. Yield</p>
-        <p className="font-bold">$120-$400</p>
+      <div className="p-5 bg-dash-card border border-white/10 rounded-2xl">
+        <p className="font-sans text-[11px] text-zinc-500 uppercase tracking-widest font-medium mb-1">Est. Yield</p>
+        <p className="font-mono font-medium text-white">$120.50</p>
       </div>
     </div>
   </div>
 );
 
 const EarningsDash = () => (
-  <div className="w-full space-y-8">
-    <div className="text-center">
-      <p className="font-mono text-[10px] uppercase opacity-40 mb-2">Withdrawable Capital</p>
-      <h3 className="font-display text-7xl tracking-tighter leading-none">$14,204.60</h3>
+  <div className="w-full space-y-6">
+    <div className="grid grid-cols-2 gap-4">
+      <div className="p-6 bg-dash-card border border-white/10 rounded-2xl">
+        <p className="font-sans text-[11px] text-zinc-500 uppercase tracking-widest font-medium mb-3">Total Clips</p>
+        <p className="font-sans font-medium text-4xl text-white">24</p>
+      </div>
+      <div className="p-6 bg-dash-card border border-white/10 rounded-2xl">
+        <p className="font-sans text-[11px] text-zinc-500 uppercase tracking-widest font-medium mb-3">Total Views</p>
+        <p className="font-sans font-medium text-4xl text-white">1.2M</p>
+      </div>
     </div>
-    <div className="space-y-3">
-      {[
-        { date: 'APR 23, 2026', amt: '+ $2,400.00', label: 'Velocity Bonus' },
-        { date: 'APR 21, 2026', amt: '+ $1,150.20', label: 'Ad Revenue Share' }
-      ].map((tx, i) => (
-        <div key={i} className="flex justify-between items-center py-4 border-b border-line">
-          <div>
-            <p className="font-mono text-[10px] opacity-40">{tx.date}</p>
-            <p className="font-sans font-medium">{tx.label}</p>
+
+    <div className="p-6 bg-dash-card border border-white/10 rounded-2xl">
+      <div className="flex items-center justify-between mb-8">
+        <h3 className="font-sans font-semibold text-white">Recent Payouts</h3>
+        <p className="font-sans text-xs text-emerald-400 bg-emerald-500/10 px-2 py-1 rounded-md">Available: $8,512</p>
+      </div>
+      <div className="space-y-4">
+        {[
+          { date: 'APR 23', amt: '+ $2,400.00', label: 'Velocity Bonus' },
+          { date: 'APR 21', amt: '+ $1,150.20', label: 'Ad Revenue Share' }
+        ].map((tx, i) => (
+          <div key={i} className="flex justify-between items-center py-3 border-b border-white/5 last:border-0 last:pb-0">
+            <div>
+              <p className="font-sans font-medium text-sm text-zinc-200">{tx.label}</p>
+              <p className="font-sans text-xs text-zinc-500 mt-1">{tx.date}</p>
+            </div>
+            <p className="font-mono text-sm text-white">{tx.amt}</p>
           </div>
-          <p className="font-mono font-bold text-lg">{tx.amt}</p>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
-    <button className="w-full bg-ink text-paper py-4 rounded-2xl font-display text-2xl hover:opacity-90 active:scale-[0.98] transition-all">
-      WITHDRAW TO WALLET
-    </button>
   </div>
 );
 
 const InfiniteMarquee = () => {
   return (
-    <div className="bg-ink py-12 overflow-hidden whitespace-nowrap border-y border-white/10">
+    <div className="bg-ink py-12 overflow-hidden whitespace-nowrap border-y border-white/10 text-paper">
       <motion.div 
         animate={{ x: [0, -1000] }}
         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
         className="inline-block"
       >
         {[...Array(10)].map((_, i) => (
-          <span key={i} className="font-display text-5xl md:text-8xl text-paper mx-10 opacity-30 italic">
+          <span key={i} className="font-display font-bold text-5xl md:text-8xl mx-10 opacity-30 italic uppercase tracking-tighter">
             LINK • CLIP • VIRALIZE • EARN • AGGREGATE • SCALE • 
           </span>
         ))}
@@ -284,7 +300,7 @@ const InfiniteMarquee = () => {
 
 const Contact = () => {
   return (
-    <section id="campaigns" className="py-32 px-6 lg:px-12 bg-paper flex flex-col items-center text-center">
+    <section id="campaigns" className="py-32 px-6 lg:px-12 bg-paper flex flex-col items-center text-center border-t border-line text-ink">
       <motion.div 
         initial={{ opacity: 0, scale: 0.9 }}
         whileInView={{ opacity: 1, scale: 1 }}
@@ -300,20 +316,20 @@ const Contact = () => {
       <p className="max-w-2xl font-sans text-xl opacity-60 mb-16 font-light">
         The viral economy is waiting. Connect your reach to our capital engine today.
       </p>
-      <div className="flex flex-col md:flex-row gap-6 mt-16">
+      <div className="flex flex-col md:flex-row gap-6 mt-6">
         <motion.button 
           whileHover={{ scale: 1.02, backgroundColor: "#000", color: "#fff" }}
           whileTap={{ scale: 0.98 }}
-          className="group relative px-12 py-6 border-2 border-ink font-display text-4xl overflow-hidden"
+          className="group relative px-12 py-4 rounded-full border-2 border-ink font-sans font-medium text-lg overflow-hidden transition-colors"
         >
-          <span className="relative z-10 transition-colors uppercase">Start Clipping</span>
+          <span className="relative z-10 uppercase">Start Clipping</span>
         </motion.button>
         <motion.button 
           whileHover={{ scale: 1.02, backgroundColor: "#000", color: "#fff" }}
           whileTap={{ scale: 0.98 }}
-          className="group relative px-12 py-6 border-2 border-ink font-display text-4xl overflow-hidden bg-white"
+          className="group relative px-12 py-4 rounded-full border-2 border-ink font-sans font-medium text-lg overflow-hidden bg-white transition-colors"
         >
-          <span className="relative z-10 transition-colors uppercase">Launch Campaign</span>
+          <span className="relative z-10 uppercase">Launch Campaign</span>
         </motion.button>
       </div>
       
@@ -354,7 +370,7 @@ const Contact = () => {
 };
 
 const Footer = () => (
-  <footer className="bg-ink text-paper py-12 px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-8 border-t border-white/5">
+  <footer className="bg-ink text-paper py-12 px-6 lg:px-12 flex flex-col md:flex-row justify-between items-center gap-8 border-t border-line">
     <div className="font-display text-2xl tracking-tighter opacity-80">CLIPNIC.</div>
     <div className="font-mono text-[10px] uppercase tracking-widest opacity-40">
       CORE PROTOCOL VERSION 2.1.0-MONO // ALL SYSTEMS OPERATIONAL
