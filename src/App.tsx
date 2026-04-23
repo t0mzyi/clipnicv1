@@ -95,22 +95,13 @@ const Hero = () => {
   const scale = useTransform(scrollYProgress, [0, 1], [1, 1.1]);
 
   return (
-    <section ref={containerRef} className="h-screen relative overflow-hidden flex items-center justify-center bg-ink pt-20">
+    <section ref={containerRef} className="min-h-screen relative overflow-hidden flex flex-col items-center justify-center bg-ink pt-32 pb-8">
       <motion.div 
         style={{ scale }}
         className="absolute inset-0 grid-pattern opacity-10 pointer-events-none"
       />
       
-      <div className="relative z-10 text-center text-paper px-6 mt-10 md:mt-16 pb-20">
-        <motion.p 
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="font-mono text-xs uppercase tracking-[0.4em] mb-6 opacity-60"
-        >
-          The Social Yield Engine
-        </motion.p>
-        
+      <div className="relative z-10 text-center text-paper px-6 flex flex-col items-center justify-center flex-grow">
         <div className="relative">
           <motion.h1 
             initial={{ opacity: 0, scale: 0.9 }}
@@ -132,7 +123,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.8 }}
-          className="mt-12 max-w-xl mx-auto font-sans text-xl opacity-60 font-light"
+          className="mt-6 max-w-xl mx-auto font-sans text-xl opacity-60 font-light text-balance"
         >
           Clipnic is the primary infrastructure for turning engagement into capital. We pay clippers for high-velocity short-form content.
         </motion.p>
@@ -141,7 +132,7 @@ const Hero = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 1.2 }}
-          className="mt-12 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 justify-center"
+          className="mt-8 flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-6 justify-center"
         >
           <button className="bg-white text-black px-12 py-4 rounded-full font-display text-2xl hover:bg-zinc-200 transition-colors">
             START EARNING
@@ -155,7 +146,7 @@ const Hero = () => {
       <motion.div 
         animate={{ y: [0, 10, 0] }}
         transition={{ repeat: Infinity, duration: 2 }}
-        className="absolute bottom-12 left-1/2 -translate-x-1/2 opacity-30"
+        className="opacity-30 relative z-10 pt-8"
       >
         <ChevronDown size={32} color="white" />
       </motion.div>
@@ -186,7 +177,7 @@ const ProcessStep = ({ icon: Icon, title, desc, dashPreview, index }: { icon: an
       initial={{ opacity: 0, scale: 0.9 }}
       whileInView={{ opacity: 1, scale: 1 }}
       viewport={{ once: true }}
-      className={`relative aspect-square md:aspect-video lg:aspect-square border border-line rounded-[2rem] overflow-hidden flex items-center justify-center p-8 ${index % 2 !== 0 ? 'bg-zinc-800 border-white/10 text-white' : 'bg-zinc-100'}`}
+      className={`relative aspect-square md:aspect-video lg:aspect-square bg-zinc-100 dark:bg-zinc-900 border border-line rounded-[2rem] overflow-hidden flex items-center justify-center p-8 ${index % 2 !== 0 ? 'bg-zinc-800 border-white/10' : ''}`}
     >
       {dashPreview}
     </motion.div>
@@ -194,52 +185,52 @@ const ProcessStep = ({ icon: Icon, title, desc, dashPreview, index }: { icon: an
 );
 
 const ConnectDash = () => (
-  <div className="w-full space-y-4 text-ink">
-    <div className="border border-black/10 p-6 rounded-2xl bg-white flex items-center justify-between shadow-sm">
+  <div className="w-full space-y-4">
+    <div className="border border-line p-6 rounded-2xl bg-white flex items-center justify-between">
       <div className="flex items-center gap-4">
         <div className="w-10 h-10 bg-black rounded-full grid place-items-center"><Instagram size={20} color="white" /></div>
         <div>
           <p className="font-mono text-[10px] opacity-40 uppercase">Metadata</p>
-          <p className="font-display text-xl">@SocialHandle</p>
+          <p className="font-display text-xl text-ink">@SocialHandle</p>
         </div>
       </div>
       <div className="bg-ink text-paper px-4 py-2 rounded-full font-mono text-[10px] uppercase">Synced</div>
     </div>
-    <div className="border border-black/10 p-6 rounded-2xl bg-white/50 flex items-center justify-between opacity-50">
+    <div className="border border-line p-6 rounded-2xl bg-white/50 flex items-center justify-between opacity-50 text-ink">
       <div className="flex items-center gap-4">
         <div className="w-10 h-10 bg-black/20 rounded-full" />
         <div className="h-4 w-32 bg-black/10 rounded" />
       </div>
       <div className="h-8 w-20 bg-black/10 rounded-full" />
     </div>
-    <button className="w-full py-4 border-2 border-dashed border-black/10 rounded-2xl font-mono text-xs uppercase hover:bg-ink hover:text-paper transition-all">
+    <button className="w-full py-4 border-2 border-dashed border-line rounded-2xl font-mono text-xs uppercase hover:bg-ink hover:text-paper transition-all text-ink">
       + Aggregate New Profile
     </button>
   </div>
 );
 
 const SubmissionDash = () => (
-  <div className="w-full max-w-md space-y-6 text-ink">
+  <div className="w-full max-w-md space-y-6">
     <div className="relative">
       <input 
         disabled 
         value="/p/viral_content_id/" 
-        className="w-full bg-transparent border-b-2 border-ink py-4 font-mono text-2xl focus:outline-none placeholder:opacity-20 text-ink" 
+        className="w-full bg-transparent border-b-2 border-current py-4 font-mono text-2xl focus:outline-none placeholder:opacity-20" 
       />
       <div className="absolute right-0 top-1/2 -translate-y-1/2">
-        <CheckCircle2 className="text-ink" />
+        <CheckCircle2 />
       </div>
     </div>
-    <div className="bg-ink text-paper p-6 rounded-2xl flex justify-between items-center hover:scale-[1.02] transition-transform cursor-pointer">
+    <div className="bg-ink text-paper dark:bg-paper dark:text-ink p-6 rounded-2xl flex justify-between items-center hover:scale-[1.02] transition-transform cursor-pointer">
       <span className="font-display text-2xl uppercase tracking-tight">Post for Review</span>
       <ArrowRight />
     </div>
     <div className="grid grid-cols-2 gap-4">
-      <div className="p-4 border border-black/10 rounded-xl">
+      <div className="p-4 border border-line rounded-xl">
         <p className="font-mono text-[10px] opacity-40">Status</p>
         <p className="font-bold">Analyzing Velocity</p>
       </div>
-      <div className="p-4 border border-black/10 rounded-xl">
+      <div className="p-4 border border-line rounded-xl">
         <p className="font-mono text-[10px] opacity-40">Est. Yield</p>
         <p className="font-bold">$120-$400</p>
       </div>
@@ -248,7 +239,7 @@ const SubmissionDash = () => (
 );
 
 const EarningsDash = () => (
-  <div className="w-full space-y-8 text-ink">
+  <div className="w-full space-y-8">
     <div className="text-center">
       <p className="font-mono text-[10px] uppercase opacity-40 mb-2">Withdrawable Capital</p>
       <h3 className="font-display text-7xl tracking-tighter leading-none">$14,204.60</h3>
@@ -258,7 +249,7 @@ const EarningsDash = () => (
         { date: 'APR 23, 2026', amt: '+ $2,400.00', label: 'Velocity Bonus' },
         { date: 'APR 21, 2026', amt: '+ $1,150.20', label: 'Ad Revenue Share' }
       ].map((tx, i) => (
-        <div key={i} className="flex justify-between items-center py-4 border-b border-black/10">
+        <div key={i} className="flex justify-between items-center py-4 border-b border-line">
           <div>
             <p className="font-mono text-[10px] opacity-40">{tx.date}</p>
             <p className="font-sans font-medium">{tx.label}</p>
