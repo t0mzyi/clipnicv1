@@ -1,1 +1,0 @@
-clipnic test landingpage
