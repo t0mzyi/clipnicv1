@@ -37,13 +37,13 @@ const BrandUnderConstruction = () => (
         <p className="font-sans opacity-60 text-xl font-light">The brands webpage is currently under development. For inquiries or to get started, please contact us via Discord.</p>
       </div>
       <div className="pt-8 flex flex-col md:flex-row justify-center gap-6">
-        <button 
+        <button
           onClick={() => window.location.href = 'https://discord.gg/8KXdFCxZsR'}
           className="px-12 py-4 rounded-full bg-brand text-ink font-sans font-bold text-lg hover:opacity-90 transition-all uppercase tracking-widest"
         >
           Join Our Discord
         </button>
-        <button 
+        <button
           onClick={() => window.location.href = '/'}
           className="px-12 py-4 rounded-full border-2 border-paper font-sans font-bold text-lg hover:bg-paper hover:text-ink transition-all uppercase tracking-widest"
         >
@@ -74,7 +74,7 @@ const NotFound = () => (
         <p className="font-sans opacity-60 text-xl font-light max-w-lg mx-auto">The requested sector could not be located in the current feed. The transmission may have been purged.</p>
       </div>
       <div className="pt-8">
-        <button 
+        <button
           onClick={() => window.location.href = '/'}
           className="px-16 py-6 rounded-full bg-paper text-ink font-sans font-bold text-xl hover:opacity-90 transition-all uppercase tracking-[0.2em] shadow-[0_20px_50px_rgba(255,255,255,0.1)]"
         >
@@ -124,46 +124,46 @@ const GetStartedModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => 
           initial={{ opacity: 0, scale: 0.9, y: 20 }}
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.9, y: 20 }}
-          className="relative w-full max-w-xl bg-paper p-8 md:p-12 rounded-[2.5rem] md:rounded-[3rem] shadow-2xl space-y-8 md:space-y-12 text-ink border-4 border-ink"
+          className="relative w-full max-w-[92%] sm:max-w-xl bg-paper p-6 md:p-12 rounded-[2rem] md:rounded-[3rem] shadow-2xl space-y-6 md:space-y-12 text-ink border-[3px] md:border-4 border-ink"
         >
-          <div className="text-center space-y-4">
-            <h2 className="font-display text-4xl md:text-6xl tracking-tighter leading-none uppercase">Choose Your <br /> Terminal</h2>
-            <p className="font-sans opacity-60 text-base md:text-lg">Select your path to continue into the ecosystem.</p>
+          <div className="text-center space-y-2 md:space-y-4">
+            <h2 className="font-display text-3xl md:text-6xl tracking-tighter leading-none uppercase">Choose Your <br /> Terminal</h2>
+            <p className="font-sans opacity-60 text-xs md:text-lg">Select your path to continue.</p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+          <div className="grid grid-cols-2 gap-3 md:gap-6">
             <button
               onClick={() => window.location.href = '/brands'}
-              className="group p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border-2 border-ink hover:bg-ink hover:text-paper transition-all text-left space-y-4"
+              className="group p-4 md:p-8 rounded-[1.2rem] md:rounded-[2rem] border-2 border-ink hover:bg-ink hover:text-paper transition-all text-left space-y-3 md:space-y-4"
             >
-              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-ink text-paper flex items-center justify-center group-hover:bg-brand group-hover:text-ink transition-colors">
-                <Zap size={20} className="md:w-6 md:h-6" />
+              <div className="w-8 h-8 md:w-12 md:h-12 rounded-full bg-ink text-paper flex items-center justify-center group-hover:bg-brand group-hover:text-ink transition-colors">
+                <Zap size={16} className="md:w-6 md:h-6" />
               </div>
               <div>
-                <h4 className="font-display text-xl md:text-2xl uppercase tracking-tight">Launch Campaign</h4>
-                <p className="text-[10px] md:text-xs opacity-60 mt-1">Deploy capital. Scale reach.</p>
+                <h4 className="font-display text-xs md:text-2xl uppercase tracking-tight leading-tight">Launch <br className="md:hidden" /> Campaign</h4>
+                <p className="hidden md:block text-[10px] md:text-xs opacity-60 mt-1">Deploy capital. Scale reach.</p>
               </div>
             </button>
 
             <button
               onClick={() => window.location.href = 'https://dash.clipnic.com/'}
-              className="group p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border-2 border-ink hover:bg-ink hover:text-paper transition-all text-left space-y-4"
+              className="group p-4 md:p-8 rounded-[1.2rem] md:rounded-[2rem] border-2 border-ink hover:bg-ink hover:text-paper transition-all text-left space-y-3 md:space-y-4"
             >
-              <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-ink text-paper flex items-center justify-center group-hover:bg-brand group-hover:text-ink transition-colors">
-                <ArrowRight size={20} className="md:w-6 md:h-6" />
+              <div className="w-8 h-8 md:w-12 md:h-12 rounded-full bg-ink text-paper flex items-center justify-center group-hover:bg-brand group-hover:text-ink transition-colors">
+                <ArrowRight size={16} className="md:w-6 md:h-6" />
               </div>
               <div>
-                <h4 className="font-display text-xl md:text-2xl uppercase tracking-tight">Start Clipping</h4>
-                <p className="text-[10px] md:text-xs opacity-60 mt-1">Post content. Liquidate yield.</p>
+                <h4 className="font-display text-xs md:text-2xl uppercase tracking-tight leading-tight">Start <br className="md:hidden" /> Clipping</h4>
+                <p className="hidden md:block text-[10px] md:text-xs opacity-60 mt-1">Post content. Liquidate yield.</p>
               </div>
             </button>
           </div>
 
           <button
             onClick={onClose}
-            className="w-full py-4 text-xs font-bold uppercase tracking-[0.3em] opacity-40 hover:opacity-100 transition-opacity"
+            className="w-full py-2 md:py-4 text-[10px] md:text-xs font-bold uppercase tracking-[0.3em] opacity-40 hover:opacity-100 transition-opacity"
           >
-            Cancel Transmission
+            Cancel
           </button>
         </motion.div>
       </div>
