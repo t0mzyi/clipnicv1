@@ -133,7 +133,7 @@ const GetStartedModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => 
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <button
-              onClick={() => window.location.href = 'https://dash.clipnic.com/brand'}
+              onClick={() => window.location.href = '/brands'}
               className="group p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border-2 border-ink hover:bg-ink hover:text-paper transition-all text-left space-y-4"
             >
               <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-ink text-paper flex items-center justify-center group-hover:bg-brand group-hover:text-ink transition-colors">
@@ -243,7 +243,7 @@ const Hero = ({ activeView, setActiveView }: { activeView: 'clipper' | 'brand', 
             <button
               onMouseEnter={() => setActiveView('brand')}
               onClick={() => {
-                if (activeView === 'brand') window.location.href = 'https://dash.clipnic.com/brand';
+                if (activeView === 'brand') window.location.href = '/brands';
                 else setActiveView('brand');
               }}
               className={`px-8 py-3 rounded-full font-sans font-bold text-[10px] md:text-sm transition-all ${activeView === 'brand' ? 'bg-brand text-black shadow-[0_0_30px_rgba(var(--color-brand-rgb),0.4)]' : 'text-white hover:bg-white/10'}`}
@@ -868,7 +868,7 @@ export default function App() {
             <motion.button
               whileHover={{ scale: 1.02, backgroundColor: "#000", color: "#fff" }}
               whileTap={{ scale: 0.98 }}
-              onClick={() => window.location.href = 'https://dash.clipnic.com/brand'}
+              onClick={() => window.location.href = '/brands'}
               className={`group relative px-12 py-4 rounded-full border-2 border-ink font-sans font-bold text-lg overflow-hidden transition-colors ${activeView === 'brand' ? 'bg-ink text-paper' : 'bg-white hover:bg-black'}`}
             >
               <span className={`relative z-10 uppercase ${activeView === 'brand' ? 'text-paper' : 'text-ink group-hover:text-paper'}`}>Launch Campaign</span>
