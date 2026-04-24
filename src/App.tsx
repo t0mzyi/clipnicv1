@@ -479,8 +479,9 @@ const Contact = ({ activeView, setActiveView }: { activeView: 'clipper' | 'brand
         <div>
           <p className="opacity-40 mb-4">Legal Framework</p>
           <div className="flex flex-col gap-2">
-            <a href="#" className="hover:underline">Privacy Policy</a>
-            <a href="#" className="hover:underline">Clipper Terms</a>
+            <a href="/privacy" className="hover:underline">Privacy Policy</a>
+            <a href="/terms" className="hover:underline">Terms of Service</a>
+            <a href="/clipper-terms" className="hover:underline">Clipper Terms</a>
           </div>
         </div>
       </div>
@@ -712,11 +713,13 @@ export default function App() {
   const [privacyOpen, setPrivacyOpen] = useState(false);
   const [termsOpen, setTermsOpen] = useState(false);
   const [getStartedOpen, setGetStartedOpen] = useState(false);
-  const [isBrandPath] = useState(window.location.pathname === '/brand' || window.location.pathname === '/brands');
+  const isBrandPath = window.location.pathname === '/brand' || window.location.pathname === '/brands';
+  const isPrivacyPath = window.location.pathname === '/privacy';
+  const isTermsPath = window.location.pathname === '/terms' || window.location.pathname === '/clipper-terms';
 
-  if (isBrandPath) {
-    return <BrandUnderConstruction />;
-  }
+  if (isBrandPath) return <BrandUnderConstruction />;
+  if (isPrivacyPath) return <PrivacyOverlay isOpen={true} onClose={() => window.location.href = '/'} />;
+  if (isTermsPath) return <TermsOverlay isOpen={true} onClose={() => window.location.href = '/'} />;
 
   return (
     <div className="relative font-sans selection:bg-ink selection:text-paper">
