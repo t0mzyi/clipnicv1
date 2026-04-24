@@ -25,7 +25,7 @@ import React, { useState, useRef, useEffect, ReactNode } from 'react';
 const Navigation = ({ onGetStarted }: { onGetStarted: () => void }) => {
   return (
     <nav className="fixed top-0 left-0 w-full z-50 mix-blend-difference text-white py-8 px-6 lg:px-12 flex justify-between items-center">
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         className="font-display text-2xl md:text-4xl tracking-widest"
@@ -48,7 +48,7 @@ const GetStartedModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => 
   <AnimatePresence>
     {isOpen && (
       <div className="fixed inset-0 z-[300] flex items-center justify-center p-6">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
@@ -67,7 +67,7 @@ const GetStartedModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => 
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <button 
+            <button
               onClick={() => window.location.href = 'https://dash.clipnic.com/brand'}
               className="group p-8 rounded-[2rem] border-2 border-ink hover:bg-ink hover:text-paper transition-all text-left space-y-4"
             >
@@ -80,7 +80,7 @@ const GetStartedModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => 
               </div>
             </button>
 
-            <button 
+            <button
               onClick={() => window.location.href = 'https://dash.clipnic.com/'}
               className="group p-8 rounded-[2rem] border-2 border-ink hover:bg-ink hover:text-paper transition-all text-left space-y-4"
             >
@@ -94,7 +94,7 @@ const GetStartedModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => 
             </button>
           </div>
 
-          <button 
+          <button
             onClick={onClose}
             className="w-full py-4 text-xs font-bold uppercase tracking-[0.3em] opacity-40 hover:opacity-100 transition-opacity"
           >
@@ -817,26 +817,7 @@ export default function App() {
           </div>
         </section>
 
-        <div className="absolute bottom-10 right-10 z-[60] mix-blend-difference hidden md:block">
-          <motion.div
-            animate={{ rotate: 360 }}
-            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-            className="relative w-24 h-24"
-          >
-            <svg viewBox="0 0 100 100" className="w-full h-full">
-              <path
-                id="circlePath"
-                d="M 50, 50 m -37, 0 a 37,37 0 1,1 74,0 a 37,37 0 1,1 -74,0"
-                fill="transparent"
-              />
-              <text className="font-mono text-[7px] uppercase fill-white tracking-[2.5px]">
-                <textPath xlinkHref="#circlePath">
-                  VIRAL YIELD ENGINE • CLIPNIC PROTOCOL •
-                </textPath>
-              </text>
-            </svg>
-          </motion.div>
-        </div>
+
       </main>
 
       <Footer />
