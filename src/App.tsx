@@ -53,6 +53,37 @@ const BrandUnderConstruction = () => (
   </div>
 );
 
+const NotFound = () => (
+  <div className="min-h-screen bg-ink flex items-center justify-center p-6 text-center text-paper">
+    <div className="max-w-2xl space-y-12">
+      <motion.div
+        initial={{ opacity: 0, scale: 0.5, rotate: -20 }}
+        animate={{ opacity: 1, scale: 1, rotate: 0 }}
+        className="relative inline-block"
+      >
+        <div className="w-40 h-40 bg-paper/5 rounded-[3rem] flex items-center justify-center border border-paper/10 shadow-2xl relative z-10">
+          <Zap size={64} className="text-brand fill-brand" />
+        </div>
+        <div className="absolute -top-4 -right-4 bg-brand text-ink font-display font-bold text-3xl w-20 h-20 rounded-3xl flex items-center justify-center border-8 border-ink rotate-12 shadow-2xl">
+          404
+        </div>
+      </motion.div>
+      <div className="space-y-6">
+        <h1 className="font-display text-[10vw] md:text-[8vw] tracking-tighter leading-none uppercase">Transmission <br /> Lost</h1>
+        <p className="font-sans opacity-60 text-xl font-light max-w-lg mx-auto">The requested sector could not be located in the current feed. The transmission may have been purged.</p>
+      </div>
+      <div className="pt-8">
+        <button 
+          onClick={() => window.location.href = '/'}
+          className="px-16 py-6 rounded-full bg-paper text-ink font-sans font-bold text-xl hover:opacity-90 transition-all uppercase tracking-[0.2em] shadow-[0_20px_50px_rgba(255,255,255,0.1)]"
+        >
+          Return to Feed
+        </button>
+      </div>
+    </div>
+  </div>
+);
+
 // --- Components ---
 
 const Navigation = ({ onGetStarted }: { onGetStarted: () => void }) => {
@@ -716,10 +747,12 @@ export default function App() {
   const isBrandPath = window.location.pathname === '/brand' || window.location.pathname === '/brands';
   const isPrivacyPath = window.location.pathname === '/privacy';
   const isTermsPath = window.location.pathname === '/terms' || window.location.pathname === '/clipper-terms';
+  const isHome = window.location.pathname === '/';
 
   if (isBrandPath) return <BrandUnderConstruction />;
   if (isPrivacyPath) return <PrivacyOverlay isOpen={true} onClose={() => window.location.href = '/'} />;
   if (isTermsPath) return <TermsOverlay isOpen={true} onClose={() => window.location.href = '/'} />;
+  if (!isHome) return <NotFound />;
 
   return (
     <div className="relative font-sans selection:bg-ink selection:text-paper">
