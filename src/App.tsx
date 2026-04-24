@@ -860,23 +860,6 @@ export default function App() {
         html {
           scroll-behavior: smooth;
         }
-        * {
-          cursor: none !important;
-        }
-        @media (max-width: 1024px) {
-          * {
-            cursor: auto !important;
-          }
-          .cursor-none {
-            cursor: auto !important;
-          }
-          .cursor-auto {
-            cursor: auto !important;
-          }
-        }
-        .cursor-auto, .cursor-auto * {
-          cursor: auto !important;
-        }
       `}</style>
     </div>
   );
