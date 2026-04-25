@@ -590,7 +590,7 @@ const PrivacyOverlay = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => v
             <section className="space-y-6">
               <h3 className="font-display text-4xl uppercase tracking-tight">2. Minor Protection & Guardian Override</h3>
               <p className="opacity-60 leading-relaxed font-light text-lg">
-                As an engine for capital liquidation, we enforce strict age parameters. Users under 13 are purged from the network. Operators aged 13-17 ("Minors") require verified guardian authorization. Guardians retain the override right to review, delete, or halt further data harvesting by contacting our central node at <span className="text-paper">legal@clipnic.com</span>.
+                As an engine for capital liquidation, we enforce strict age parameters. Users under 13 are purged from the network. Operators aged 13-17 ("Minors") require verified guardian authorization. Guardians retain the override right to review, delete, or halt further data harvesting by contacting our central node at <span className="text-paper">clipnicteam@gmail.com</span>.
               </p>
             </section>
 
@@ -643,7 +643,7 @@ const PrivacyOverlay = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => v
             <section className="space-y-6">
               <h3 className="font-display text-4xl uppercase tracking-tight">8. Central Node Contact</h3>
               <p className="opacity-60 leading-relaxed font-light text-lg">
-                For inquiries regarding this Privacy Policy or to execute your data rights: <span className="text-paper font-bold underline">legal@clipnic.com</span>.
+                For inquiries regarding this Privacy Policy or to execute your data rights: <span className="text-paper font-bold underline">clipnicteam@gmail.com</span>.
               </p>
             </section>
           </div>
@@ -740,7 +740,7 @@ const TermsOverlay = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
           <div className="pt-20 border-t border-paper/10 flex flex-col md:flex-row justify-between gap-12">
             <div className="space-y-4">
               <h4 className="font-display text-4xl uppercase">Legal Node</h4>
-              <p className="font-mono text-xl">legal@clipnic.com</p>
+              <p className="font-mono text-xl">clipnicteam@gmail.com</p>
             </div>
           </div>
         </div>
