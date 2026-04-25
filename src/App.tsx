@@ -94,10 +94,10 @@ const Navigation = ({ onGetStarted }: { onGetStarted: () => void }) => {
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        className="flex items-center gap-3 cursor-pointer"
+        className="flex items-center gap-1.5 cursor-pointer"
         onClick={() => window.location.href = '/'}
       >
-        <img src="/logo.webp" className="w-8 h-8 md:w-10 md:h-10 rounded-lg object-cover" alt="Logo" />
+        <img src="logo.webp" className="w-8 h-8 md:w-10 md:h-10 rounded-lg object-cover" alt="Logo" />
         <span className="font-display text-xl md:text-2xl tracking-widest">CLIPNIC.COM</span>
       </motion.div>
       <motion.button
