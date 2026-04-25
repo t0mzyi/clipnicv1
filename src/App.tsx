@@ -521,7 +521,7 @@ const Contact = ({ activeView, setActiveView }: { activeView: 'clipper' | 'brand
           <div className="flex flex-col gap-2">
             <a href="/privacy" className="hover:underline">Privacy Policy</a>
             <a href="/terms" className="hover:underline">Terms of Service</a>
-            <a href="/clipper-terms" className="hover:underline">Clipper Terms</a>
+            <a href="/terms" className="hover:underline">Clipper Terms</a>
           </div>
         </div>
       </div>
@@ -543,6 +543,7 @@ const Footer = () => (
         <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
       </a>
       <a href="https://discord.gg/pW6RJs8Ctp" target="_blank" rel="noopener noreferrer" className="opacity-60 hover:opacity-100 cursor-pointer">
+
         <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor"><path d="M20.317 4.37a19.791 19.791 0 0 0-4.885-1.515.074.074 0 0 0-.079.037c-.21.375-.444.864-.608 1.25a18.27 18.27 0 0 0-5.487 0 12.64 12.64 0 0 0-.617-1.25.077.077 0 0 0-.079-.037A19.736 19.736 0 0 0 3.677 4.37a.07.07 0 0 0-.032.027C.533 9.046-.32 13.58.099 18.057a.082.082 0 0 0 .031.057 19.9 19.9 0 0 0 5.993 3.03.078.078 0 0 0 .084-.028 14.09 14.09 0 0 0 1.226-1.994.076.076 0 0 0-.041-.106 13.107 13.107 0 0 1-1.872-.892.077.077 0 0 1-.008-.128 10.2 10.2 0 0 0 .372-.292.074.074 0 0 1 .077-.01c3.928 1.793 8.18 1.793 12.062 0a.074.074 0 0 1 .078.01c.12.098.246.198.373.292a.077.077 0 0 1-.006.127 12.299 12.299 0 0 1-1.874.892.077.077 0 0 0-.041.107c.36.698.772 1.362 1.225 1.993a.076.076 0 0 0 .084.028 19.839 19.839 0 0 0 6.002-3.03a.077.077 0 0 0 .032-.054c.5-5.177-.838-9.674-3.549-13.66a.061.061 0 0 0-.031-.03zM8.02 15.33c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.956-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.956 2.418-2.157 2.418zm7.975 0c-1.183 0-2.157-1.085-2.157-2.419 0-1.333.955-2.419 2.157-2.419 1.21 0 2.176 1.096 2.157 2.42 0 1.333-.946 2.418-2.157 2.418z" /></svg>
       </a>
     </div>
@@ -560,12 +561,21 @@ const PrivacyOverlay = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => v
       >
         <button
           onClick={onClose}
-          className="fixed top-10 right-10 w-12 h-12 rounded-full border border-paper/20 flex items-center justify-center hover:bg-paper hover:text-ink transition-colors z-[210]"
+          className="fixed top-10 right-10 w-16 h-16 rounded-full bg-paper border border-paper/10 flex items-center justify-center hover:scale-110 transition-all z-[210] shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
         >
-          <Zap size={24} className="fill-brand text-brand" />
+          <div className="w-10 h-10 rounded-full bg-ink flex items-center justify-center">
+            <Zap size={20} className="fill-brand text-brand" />
+          </div>
         </button>
 
         <div className="max-w-4xl mx-auto space-y-20 pb-32">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="w-24 h-24 rounded-full bg-paper flex items-center justify-center border-4 border-ink shadow-[8px_8px_0_var(--color-brand)] mb-12"
+          >
+            <Zap size={40} className="fill-brand text-brand" />
+          </motion.div>
           <div className="space-y-8">
             <h1 className="font-display text-[10vw] md:text-[8vw] leading-none tracking-tighter uppercase">Privacy <br /> Protocol</h1>
             <p className="font-mono text-xs uppercase tracking-[0.4em] opacity-40">Last Synchronized: April 24, 2026</p>
@@ -573,7 +583,7 @@ const PrivacyOverlay = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => v
 
           <div className="space-y-12 text-xl md:text-2xl font-light leading-relaxed opacity-80">
             <p>
-              Your Privacy is the Core: This Privacy Protocol outlines how Clipnic ("we," "our," or "us") harvests, encrypts, and secures your identity within the ecosystem (clipnic.com). We bridge the gap between brands, creators, and the independent editing network ("Clippers").
+              Your Privacy is the Core: This Privacy Policy outlines how Clipnic ("we," "our," or "us") harvests, encrypts, and secures your identity within the ecosystem (clipnic.com). We bridge the gap between brands, creators, and the independent editing network ("Clippers").
             </p>
           </div>
 
@@ -641,7 +651,7 @@ const PrivacyOverlay = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => v
             <section className="space-y-6">
               <h3 className="font-display text-4xl uppercase tracking-tight">8. Central Node Contact</h3>
               <p className="opacity-60 leading-relaxed font-light text-lg">
-                For inquiries regarding this Privacy Protocol or to execute your data rights: <span className="text-paper font-bold underline">clipnicteam@gmail.com</span>.
+                For inquiries regarding this Privacy Policy or to execute your data rights: <span className="text-paper font-bold underline">clipnicteam@gmail.com</span>.
               </p>
             </section>
           </div>
@@ -671,12 +681,21 @@ const TermsOverlay = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
       >
         <button
           onClick={onClose}
-          className="fixed top-10 right-10 w-12 h-12 rounded-full border border-paper/20 flex items-center justify-center hover:bg-paper hover:text-ink transition-colors z-[210]"
+          className="fixed top-10 right-10 w-16 h-16 rounded-full bg-paper border border-paper/10 flex items-center justify-center hover:scale-110 transition-all z-[210] shadow-[0_10px_30px_rgba(0,0,0,0.2)]"
         >
-          <Zap size={24} className="fill-brand text-brand" />
+          <div className="w-10 h-10 rounded-full bg-ink flex items-center justify-center">
+            <Zap size={20} className="fill-brand text-brand" />
+          </div>
         </button>
 
         <div className="max-w-4xl mx-auto space-y-20 pb-32">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.8 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="w-24 h-24 rounded-full bg-paper flex items-center justify-center border-4 border-ink shadow-[8px_8px_0_var(--color-brand)] mb-12"
+          >
+            <Zap size={40} className="fill-brand text-brand" />
+          </motion.div>
           <div className="space-y-8">
             <h1 className="font-display text-[10vw] md:text-[8vw] leading-none tracking-tighter uppercase">Service <br /> Protocol</h1>
             <p className="font-mono text-xs uppercase tracking-[0.4em] opacity-40">Last Synchronized: April 24, 2026</p>
@@ -715,13 +734,23 @@ const TermsOverlay = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
 
           <div className="space-y-12">
             <h3 className="font-display text-6xl tracking-tighter uppercase">5. Restricted Transmissions</h3>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {["Fake Engagement", "Harmful Content", "Platform Abuse", "Off-Platform Circumvention"].map((item, i) => (
-                <div key={i} className="flex items-center gap-4 p-6 border border-paper/10 rounded-2xl">
-                  <div className="w-2 h-2 bg-brand rounded-full" />
-                  <span className="font-display text-2xl uppercase tracking-tight">{item}</span>
-                </div>
-              ))}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              <div className="space-y-4 p-8 border border-paper/10 rounded-[2rem]">
+                <h4 className="font-display text-2xl uppercase tracking-tight text-brand">Fake Engagement</h4>
+                <p className="opacity-60 leading-relaxed font-light">The utilization of automated scripts, bot networks, click farms, or any artificial methods to inflate view counts, likes, or comments is strictly prohibited. Any detection of non-organic velocity will result in immediate yield forfeiture and permanent node termination.</p>
+              </div>
+              <div className="space-y-4 p-8 border border-paper/10 rounded-[2rem]">
+                <h4 className="font-display text-2xl uppercase tracking-tight text-brand">Harmful Content</h4>
+                <p className="opacity-60 leading-relaxed font-light">Content transmitted through the network must adhere to universal safety standards. This includes the prohibition of hate speech, explicit violence, illegal substances, or any material that violates the hosting platform's (TikTok, IG, YouTube) community guidelines.</p>
+              </div>
+              <div className="space-y-4 p-8 border border-paper/10 rounded-[2rem]">
+                <h4 className="font-display text-2xl uppercase tracking-tight text-brand">Platform Abuse</h4>
+                <p className="opacity-60 leading-relaxed font-light">Attempting to exploit system vulnerabilities, bypassing the verification engine, or maintaining multiple accounts to manipulate campaign budgets is a breach of protocol. We deploy advanced telemetry to detect and neutralize adversarial network behavior.</p>
+              </div>
+              <div className="space-y-4 p-8 border border-paper/10 rounded-[2rem]">
+                <h4 className="font-display text-2xl uppercase tracking-tight text-brand">Off-Platform Circumvention</h4>
+                <p className="opacity-60 leading-relaxed font-light">The Clipnic infrastructure is the exclusive rail for campaign execution and capital liquidation. Attempting to bypass platform fees, directly contacting ecosystem brands for off-protocol deals, or redirecting traffic to unverified destinations is prohibited.</p>
+              </div>
             </div>
           </div>
 
@@ -907,8 +936,8 @@ export default function App() {
             <div>
               <p className="opacity-40 mb-4">Legal Framework</p>
               <div className="flex flex-col gap-2">
-                <button onClick={() => setPrivacyOpen(true)} className="hover:underline text-left uppercase">Privacy Protocol</button>
-                <button onClick={() => setTermsOpen(true)} className="hover:underline text-left uppercase">Service Protocol</button>
+                <a href="/privacy" className="hover:underline text-left uppercase">Privacy Policy</a>
+                <a href="/terms" className="hover:underline text-left uppercase">Terms of Service</a>
               </div>
             </div>
           </div>
