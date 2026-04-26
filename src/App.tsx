@@ -567,80 +567,156 @@ const PrivacyOverlay = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => v
           Return
         </button>
 
-        <div className="max-w-3xl mx-auto space-y-12 pb-32">
+        <div className="max-w-3xl mx-auto space-y-12 pb-32 font-sans text-black">
           <div className="pt-12 space-y-4 border-b-2 border-black pb-8">
-            <h1 className="font-sans text-4xl md:text-5xl font-black uppercase tracking-tight">Privacy Policy</h1>
-            <div className="flex flex-col md:flex-row md:justify-between gap-2 font-mono text-[10px] uppercase tracking-widest opacity-60">
-              <p>Document Ref: CP-PL-2026</p>
-              <p>Last Revised: April 25, 2026</p>
+            <h1 className="text-4xl md:text-5xl font-black uppercase tracking-tight">Privacy Policy</h1>
+            <div className="flex flex-col md:flex-row md:justify-between gap-2 font-mono text-[10px] uppercase tracking-widest opacity-60 font-bold">
+              <p>Document: Privacy Policy for Clipnic</p>
+              <p>Last Updated: April 24, 2026</p>
             </div>
           </div>
 
           <div className="text-lg leading-relaxed space-y-6">
-            <p className="font-bold uppercase tracking-tight">Introduction</p>
-            <p>
-              This Privacy Policy outlines the mandatory protocols by which Clipnic ("the Company," "we," "our," or "us") collects, processes, and safeguards the personal data of users interfacing with the ecosystem (clipnic.com). By accessing the network, you acknowledge the data handling practices described herein.
+            <p className="font-bold uppercase tracking-tight text-sm">Your Privacy is Important</p>
+            <p className="opacity-90">
+              This Privacy Policy explains how Clipnic ("we," "our," or "us") collects, uses, and protects your personal information when you use our platform (clipnic.com) to connect brands, creators, and independent editors ("Clippers").
             </p>
           </div>
 
           <div className="space-y-10">
-            <section className="space-y-4">
-              <h3 className="text-xl font-black uppercase tracking-tight border-l-4 border-black pl-4">1.0 Data Collection Framework</h3>
-              <p className="leading-relaxed opacity-80">
-                Clipnic adheres to international data protection standards (GDPR, CCPA, COPPA). We collect data necessary for system operation, including but not limited to:
-              </p>
-              <ul className="list-disc pl-6 space-y-2 opacity-80">
-                <li>Direct identification data (Name, Email, Account Credentials)</li>
-                <li>Financial distribution metadata (PayPal/Bank identifiers)</li>
-                <li>System telemetry (IP signatures, browser identifiers)</li>
-                <li>Social platform performance metrics via OAuth tunnels</li>
-              </ul>
+            <section className="p-8 bg-zinc-50 border border-zinc-200 rounded-2xl">
+              <h3 className="text-xs font-bold uppercase tracking-[0.2em] mb-6 text-zinc-400">Table of Contents</h3>
+              <nav className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-3 text-sm font-medium">
+                <ol className="list-decimal pl-4 space-y-3">
+                  <li>Introduction & Scope</li>
+                  <li>Children's Privacy & Parental Consent</li>
+                  <li>Information Collection</li>
+                  <li>How We Use Your Information</li>
+                </ol>
+                <ol className="list-decimal pl-4 space-y-3" start={5}>
+                  <li>Cookies and Tracking</li>
+                  <li>Data Security</li>
+                  <li>Your Rights & API Revocation</li>
+                  <li>Contact Information</li>
+                </ol>
+              </nav>
             </section>
 
             <section className="space-y-4">
-              <h3 className="text-xl font-black uppercase tracking-tight border-l-4 border-black pl-4">2.0 Protection of Minors</h3>
+              <h3 className="text-xl font-black uppercase tracking-tight border-l-4 border-black pl-4">1.0 Introduction & Scope</h3>
               <p className="leading-relaxed opacity-80">
-                The ecosystem is prohibited for users under 13 years of age. Users aged 13-17 require verified parental or guardian consent. We reserve the right to terminate any accounts failing to provide sufficient proof of eligibility.
+                Clipnic is committed to protecting your privacy and handling your personal information in accordance with applicable data protection laws, including the General Data Protection Regulation (GDPR), the California Consumer Privacy Act (CCPA), the Children's Online Privacy Protection Act (COPPA), and other relevant privacy legislation.
               </p>
-            </section>
-
-            <section className="space-y-4">
-              <h3 className="text-xl font-black uppercase tracking-tight border-l-4 border-black pl-4">3.0 Data Utilization & Purpose</h3>
               <p className="leading-relaxed opacity-80">
-                Collected information is utilized strictly to:
-              </p>
-              <ul className="list-decimal pl-6 space-y-2 opacity-80 font-medium">
-                <li>Verify content performance and calculate bounty yields.</li>
-                <li>Process secure financial payouts.</li>
-                <li>Maintain network security and fraud prevention.</li>
-                <li>Calibrate marketplace algorithms for brands and creators.</li>
-              </ul>
-            </section>
-
-            <section className="space-y-4">
-              <h3 className="text-xl font-black uppercase tracking-tight border-l-4 border-black pl-4">4.0 Information Disclosure</h3>
-              <p className="leading-relaxed opacity-80">
-                We do not sell user data. Information is disclosed only to essential third-party service providers (payment processors, cloud infrastructure) under strict confidentiality agreements, or when legally compelled by government authorities.
+                This Privacy Policy applies to all users—including content creators, brands, and clippers—and covers all data processing activities across our platform.
               </p>
             </section>
 
             <section className="space-y-4">
-              <h3 className="text-xl font-black uppercase tracking-tight border-l-4 border-black pl-4">5.0 Security & Encryption</h3>
-              <p className="leading-relaxed opacity-80">
-                All data transmissions are secured via TLS/SSL protocols. While we employ military-grade encryption at rest, users acknowledge that no digital transmission is entirely exempt from external risk.
-              </p>
+              <h3 className="text-xl font-black uppercase tracking-tight border-l-4 border-black pl-4">2.0 Children's Privacy & Parental Consent</h3>
+              <div className="space-y-4 leading-relaxed opacity-80">
+                <p>Because Clipnic offers earning opportunities, we take the privacy of our younger users very seriously.</p>
+                <ul className="list-disc pl-6 space-y-4">
+                  <li><span className="font-bold">Under 13:</span> Our platform is not directed at, nor do we knowingly collect personal information from, children under the age of 13. If we discover we have inadvertently collected data from a child under 13, we will delete it immediately.</li>
+                  <li><span className="font-bold">Ages 13 to 17:</span> Users between 13 and the age of legal majority in their jurisdiction may only use Clipnic with the verifiable consent of a parent or legal guardian.</li>
+                  <li><span className="font-bold">Guardian Rights:</span> Parents or guardians who have consented to their child's use of the platform have the right to review the minor's personal information, request its deletion, and refuse to allow further collection of data by contacting us at contact@clipnic.com.</li>
+                </ul>
+              </div>
             </section>
 
             <section className="space-y-4">
-              <h3 className="text-xl font-black uppercase tracking-tight border-l-4 border-black pl-4">6.0 User Rights & Revocation</h3>
-              <p className="leading-relaxed opacity-80">
-                Users retain the absolute right to access, modify, or delete their data footprint. API permissions can be revoked through your respective platform security settings at any time.
-              </p>
+              <h3 className="text-xl font-black uppercase tracking-tight border-l-4 border-black pl-4">3.0 Information Collection</h3>
+              <div className="space-y-6 leading-relaxed opacity-80">
+                <p>We collect information through three primary methods:</p>
+                
+                <div className="space-y-4">
+                  <h4 className="font-bold text-sm uppercase underline">A. Directly from You</h4>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li><span className="font-bold">Account Details:</span> Name, email address, and date of birth (to verify age requirements).</li>
+                    <li><span className="font-bold">Profile Information:</span> Usernames, bios, and profile pictures.</li>
+                    <li><span className="font-bold">Financial Information:</span> Payout details (e.g., PayPal email, bank details) collected securely through third-party payment processors to issue campaign bounties.</li>
+                  </ul>
+                </div>
+
+                <div className="space-y-4">
+                  <h4 className="font-bold text-sm uppercase underline">B. Automatically</h4>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li><span className="font-bold">Technical Data:</span> IP addresses, browser type, operating system, and device identifiers.</li>
+                    <li><span className="font-bold">Analytics Data:</span> Platform usage, page interactions, and time spent on the site.</li>
+                  </ul>
+                </div>
+
+                <div className="space-y-4">
+                  <h4 className="font-bold text-sm uppercase underline">C. Third-Party Sources (APIs & OAuth)</h4>
+                  <p>To track clip performance and verify bounties, Clipnic connects with third-party platforms (e.g., YouTube, TikTok, Instagram, X).</p>
+                  <ul className="list-disc pl-6 space-y-2">
+                    <li><span className="font-bold">OAuth Tokens:</span> When you link a social media account, we use secure OAuth authentication. We do not see or store your platform passwords.</li>
+                    <li><span className="font-bold">API Data:</span> We collect public metrics (views, likes, engagement data) related only to the specific clips submitted for Clipnic campaigns.</li>
+                    <li><span className="font-bold">Platform Policies:</span> By linking your YouTube account, for example, you also agree to be bound by the YouTube Terms of Service and Google Privacy Policy.</li>
+                  </ul>
+                </div>
+              </div>
             </section>
 
-            <div className="pt-12 border-t border-zinc-200">
-              <p className="font-mono text-[10px] uppercase tracking-widest font-bold">Contact Authority</p>
-              <p className="text-xl font-bold underline decoration-2 underline-offset-4">clipnicteam@gmail.com</p>
+            <section className="space-y-4">
+              <h3 className="text-xl font-black uppercase tracking-tight border-l-4 border-black pl-4">4.0 How We Use Your Information</h3>
+              <div className="space-y-4 leading-relaxed opacity-80">
+                <p>We use your information for legitimate business purposes, including:</p>
+                <ul className="list-disc pl-6 space-y-2">
+                  <li><span className="font-bold">Service Provision:</span> To host the marketplace, track campaign performance, and facilitate collaboration between Brands and Clippers.</li>
+                  <li><span className="font-bold">Bounty Verification:</span> To analyze engagement metrics, detect fraudulent activity (e.g., viewbotting, engagement pods), and ensure fair payouts.</li>
+                  <li><span className="font-bold">Platform Security:</span> To monitor for unauthorized access, enforce our Terms of Service, and comply with legal or tax reporting obligations.</li>
+                  <li><span className="font-bold">Communication:</span> To notify you about campaign updates, payout statuses, and platform changes.</li>
+                </ul>
+              </div>
+            </section>
+
+            <section className="space-y-4">
+              <h3 className="text-xl font-black uppercase tracking-tight border-l-4 border-black pl-4">5.0 Cookies and Tracking</h3>
+              <div className="space-y-4 leading-relaxed opacity-80">
+                <p>We use cookies and similar tracking technologies to ensure the platform functions properly:</p>
+                <ul className="list-disc pl-6 space-y-3">
+                  <li><span className="font-bold">Essential Cookies:</span> Necessary for account authentication, security, and tracking active sessions. (Cannot be disabled).</li>
+                  <li><span className="font-bold">Analytics Cookies:</span> Help us understand user behavior and improve platform design. (Opt-out available).</li>
+                  <li><span className="font-bold">Cookie Management:</span> You can control or delete non-essential cookies through your browser settings at any time.</li>
+                </ul>
+              </div>
+            </section>
+
+            <section className="space-y-4">
+              <h3 className="text-xl font-black uppercase tracking-tight border-l-4 border-black pl-4">6.0 Data Security</h3>
+              <div className="space-y-4 leading-relaxed opacity-80">
+                <p>We implement strict security measures to protect your data, including:</p>
+                <ul className="list-disc pl-6 space-y-3">
+                  <li><span className="font-bold">Encryption:</span> Data is encrypted in transit (HTTPS/TLS) and at rest.</li>
+                  <li><span className="font-bold">Access Control:</span> Restricted, role-based access to personal data by Clipnic staff.</li>
+                  <li><span className="font-bold">Data Retention:</span> We retain your data only as long as necessary to provide our services, process your payouts, or comply with legal tax obligations.</li>
+                </ul>
+              </div>
+            </section>
+
+            <section className="space-y-4">
+              <h3 className="text-xl font-black uppercase tracking-tight border-l-4 border-black pl-4">7.0 Your Rights & API Revocation</h3>
+              <div className="space-y-4 leading-relaxed opacity-80">
+                <p>Depending on your location (e.g., under GDPR or CCPA), you have the right to:</p>
+                <ul className="list-disc pl-6 space-y-3">
+                  <li><span className="font-bold">Access & Portability:</span> Request a copy of the personal data we hold about you.</li>
+                  <li><span className="font-bold">Correction:</span> Update or correct inaccurate account information.</li>
+                  <li><span className="font-bold">Deletion (Right to be Forgotten):</span> Request the deletion of your account and personal data, subject to legal and financial retention requirements.</li>
+                  <li><span className="font-bold">Revoking API Access:</span> You can disconnect your social media accounts from Clipnic at any time. For example, you can revoke Clipnic's access to your YouTube data via your Google Account Security Settings page. Doing so will stop further data collection but may prevent you from participating in active campaigns.</li>
+                </ul>
+              </div>
+            </section>
+
+            <div className="pt-12 border-t border-black space-y-6">
+              <div>
+                <p className="font-mono text-[10px] uppercase tracking-widest font-black mb-2">8.0 Contact Information</p>
+                <p className="opacity-70 text-sm mb-4">If you have any questions about this Privacy Policy, need to verify parental consent, or wish to exercise your data rights, please contact our privacy team:</p>
+                <div className="space-y-2">
+                  <p className="text-xl font-black underline decoration-2 underline-offset-4">clipnicteam@gmail.com</p>
+                  <p className="font-mono text-xs uppercase tracking-widest opacity-60">Subject Line: Privacy Policy Inquiry - [Your Subject]</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
