@@ -569,7 +569,7 @@ const PrivacyOverlay = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => v
 
         <div className="max-w-4xl mx-auto space-y-20 pb-32">
           <div className="pt-12 space-y-8">
-            <h1 className="font-display text-[8vw] md:text-[6vw] leading-none tracking-tighter uppercase border-b-4 border-brand pb-8">Privacy Protocol</h1>
+            <h1 className="font-display text-[8vw] md:text-[6vw] leading-none tracking-tighter uppercase border-b-4 border-brand pb-8">Privacy Policy</h1>
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] opacity-40">Security Clearance Level: Standard | Last Updated: April 25, 2026</p>
           </div>
 
@@ -583,7 +583,7 @@ const PrivacyOverlay = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => v
             <section className="space-y-6">
               <h3 className="font-display text-4xl uppercase tracking-tight">1. Data Transmission Scope</h3>
               <p className="opacity-60 leading-relaxed font-light text-lg">
-                Clipnic is committed to shielding your identity in alignment with global data protection frameworks, including GDPR, CCPA, and COPPA. This Protocol applies to all network nodes—creators, brands, and clippers—covering all data streams across the ecosystem.
+                Clipnic is committed to shielding your identity in alignment with global data protection frameworks, including GDPR, CCPA, and COPPA. This Policy applies to all network nodes—creators, brands, and clippers—covering all data streams across the ecosystem.
               </p>
             </section>
 
@@ -613,7 +613,7 @@ const PrivacyOverlay = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => v
             </section>
 
             <section className="space-y-6">
-              <h3 className="font-display text-4xl uppercase tracking-tight">4. Protocol Utilization</h3>
+              <h3 className="font-display text-4xl uppercase tracking-tight">4. Policy Utilization</h3>
               <p className="opacity-60 leading-relaxed font-light text-lg">
                 Data is utilized to: (a) Power the viral engine and marketplace; (b) Verify transmission performance and calibrate payouts; (c) Synchronize financial distributions; (d) Defend the network against fraudulent bots or algorithm manipulation.
               </p>
@@ -673,20 +673,20 @@ const TermsOverlay = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
 
         <div className="max-w-4xl mx-auto space-y-20 pb-32">
           <div className="pt-12 space-y-8">
-            <h1 className="font-display text-[8vw] md:text-[6vw] leading-none tracking-tighter uppercase border-b-4 border-brand pb-8">Service Protocol</h1>
+            <h1 className="font-display text-[8vw] md:text-[6vw] leading-none tracking-tighter uppercase border-b-4 border-brand pb-8">Terms of Service</h1>
             <p className="font-mono text-[10px] uppercase tracking-[0.4em] opacity-40">Governance Code: ALPHA-01 | Last Updated: April 25, 2026</p>
           </div>
 
           <div className="space-y-12 text-xl md:text-2xl font-light leading-relaxed opacity-80">
             <p>
-              Agreement to Protocol: By interfacing with Clipnic (clipnic.com), you agree to be bound by these Service Protocols and all governing ecosystem regulations.
+              Agreement to Terms: By interfacing with Clipnic (clipnic.com), you agree to be bound by these Terms of Service and all governing ecosystem regulations.
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-20">
             <div className="space-y-6">
-              <h3 className="font-display text-4xl tracking-tight uppercase">1. Protocol Acceptance</h3>
-              <p className="opacity-60 leading-relaxed font-light text-lg">These Protocols govern your utilization of the Clipnic network. Establishing an account constitutes a legally binding link. If you decline these terms, system access is prohibited.</p>
+              <h3 className="font-display text-4xl tracking-tight uppercase">1. Terms Acceptance</h3>
+              <p className="opacity-60 leading-relaxed font-light text-lg">These Terms govern your utilization of the Clipnic network. Establishing an account constitutes a legally binding link. If you decline these terms, system access is prohibited.</p>
             </div>
             <div className="space-y-6">
               <h3 className="font-display text-4xl tracking-tight uppercase">2. Operator Eligibility</h3>
@@ -721,11 +721,11 @@ const TermsOverlay = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => voi
               </div>
               <div className="space-y-4 p-8 border border-paper/10 rounded-[2rem]">
                 <h4 className="font-display text-2xl uppercase tracking-tight text-brand">Platform Abuse</h4>
-                <p className="opacity-60 leading-relaxed font-light">Attempting to exploit system vulnerabilities, bypassing the verification engine, or maintaining multiple accounts to manipulate campaign budgets is a breach of protocol. We deploy advanced telemetry to detect and neutralize adversarial network behavior.</p>
+                <p className="opacity-60 leading-relaxed font-light">Attempting to exploit system vulnerabilities, bypassing the verification engine, or maintaining multiple accounts to manipulate campaign budgets is a breach of terms. We deploy advanced telemetry to detect and neutralize adversarial network behavior.</p>
               </div>
               <div className="space-y-4 p-8 border border-paper/10 rounded-[2rem]">
                 <h4 className="font-display text-2xl uppercase tracking-tight text-brand">Off-Platform Circumvention</h4>
-                <p className="opacity-60 leading-relaxed font-light">The Clipnic infrastructure is the exclusive rail for campaign execution and capital liquidation. Attempting to bypass platform fees, directly contacting ecosystem brands for off-protocol deals, or redirecting traffic to unverified destinations is prohibited.</p>
+                <p className="opacity-60 leading-relaxed font-light">The Clipnic infrastructure is the exclusive rail for campaign execution and capital liquidation. Attempting to bypass platform fees, directly contacting ecosystem brands for off-platform deals, or redirecting traffic to unverified destinations is prohibited.</p>
               </div>
             </div>
           </div>
