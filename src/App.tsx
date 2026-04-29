@@ -23,37 +23,135 @@ import {
 import React, { useState, useRef, useEffect, ReactNode } from 'react';
 import { SpeedInsights } from "@vercel/speed-insights/react";
 
-const BrandUnderConstruction = () => (
-  <div className="min-h-screen bg-ink flex items-center justify-center p-6 text-center text-paper">
-    <div className="max-w-2xl space-y-12">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.9 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="w-32 h-32 bg-paper/5 rounded-full flex items-center justify-center mx-auto border border-paper/10"
-      >
-        <Box size={56} className="text-brand" />
-      </motion.div>
-      <div className="space-y-6">
-        <h1 className="font-display text-[10vw] md:text-[6vw] tracking-tighter leading-none uppercase">Under <br /> Development</h1>
-        <p className="font-sans opacity-60 text-xl font-light">This webpage is currently under development. For inquiries or to get started, please contact us via Discord.</p>
-      </div>
-      <div className="pt-8 flex flex-col md:flex-row justify-center gap-6">
-        <button
-          onClick={() => window.location.href = 'https://discord.gg/pW6RJs8Ctp'}
-          className="px-12 py-4 rounded-full bg-brand text-ink font-sans font-bold text-lg hover:opacity-90 transition-all uppercase tracking-widest"
-        >
-          Join Our Discord
+const BrandPartnershipPage = () => {
+  const [submitted, setSubmitted] = useState(false);
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Logic for sending data (e.g., to a backend or Formspree)
+    setSubmitted(true);
+  };
+
+  return (
+    <div className="min-h-screen bg-ink text-paper selection:bg-brand selection:text-ink">
+      <nav className="p-8 lg:p-12 flex justify-between items-center border-b border-white/5">
+        <div className="flex items-center gap-1.5 cursor-pointer" onClick={() => window.location.href = '/'}>
+          <img src="logo.webp" className="w-8 h-8 rounded-lg object-cover" alt="Clipnic Logo" />
+          <span className="font-display text-xl tracking-widest uppercase">CLIPNIC.COM</span>
+        </div>
+        <button onClick={() => window.location.href = '/'} className="font-mono text-[10px] uppercase tracking-widest opacity-40 hover:opacity-100 transition-opacity flex items-center gap-2">
+          <ArrowLeft size={12} />
+          Back to Feed
         </button>
-        <button
-          onClick={() => window.location.href = '/'}
-          className="px-12 py-4 rounded-full border-2 border-paper font-sans font-bold text-lg hover:bg-paper hover:text-ink transition-all uppercase tracking-widest"
+      </nav>
+
+      <div className="max-w-6xl mx-auto px-6 py-20 lg:py-32 grid lg:grid-cols-2 gap-20 lg:gap-32 items-start">
+        <motion.div
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
+          className="space-y-12"
         >
-          Return to Home
-        </button>
+          <div className="space-y-6">
+            <h1 className="font-display text-[12vw] lg:text-[7vw] leading-[0.85] tracking-tighter uppercase">Scale <br /> Your <br /> <span className="text-brand">Viral</span> Velocity</h1>
+            <p className="font-sans text-xl opacity-60 font-light max-w-md leading-relaxed">Join the global infrastructure for short-form video distribution. Deploy your first high-velocity campaign today.</p>
+          </div>
+
+          <div className="space-y-8">
+            <div className="flex items-start gap-6">
+              <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 shrink-0">
+                <Zap size={24} className="text-brand" />
+              </div>
+              <div>
+                <h4 className="font-display text-xl uppercase">Decentralized Reach</h4>
+                <p className="font-sans opacity-40 text-sm">Thousands of professional clippers producing for your brand natively.</p>
+              </div>
+            </div>
+            <div className="flex items-start gap-6">
+              <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center border border-white/10 shrink-0">
+                <TrendingUp size={24} className="text-brand" />
+              </div>
+              <div>
+                <h4 className="font-display text-xl uppercase">Performance Driven</h4>
+                <p className="font-sans opacity-40 text-sm">Only pay for verified engagement and impressions. High CPM efficiency.</p>
+              </div>
+            </div>
+          </div>
+        </motion.div>
+
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="relative"
+        >
+          {submitted ? (
+            <div className="bg-white/5 border border-white/10 p-12 rounded-[3rem] text-center space-y-8 py-20 backdrop-blur-3xl shadow-2xl">
+              <div className="w-20 h-20 bg-brand text-ink rounded-full flex items-center justify-center mx-auto shadow-[0_0_50px_rgba(var(--color-brand-rgb),0.5)]">
+                <CheckCircle2 size={40} />
+              </div>
+              <div className="space-y-4">
+                <h2 className="font-display text-4xl uppercase">Transmission Received</h2>
+                <p className="font-sans opacity-60 text-lg">Our strategy team will review your brand and reach out within 24 hours.</p>
+              </div>
+              <button 
+                onClick={() => setSubmitted(false)}
+                className="font-mono text-[10px] uppercase tracking-widest opacity-40 hover:opacity-100 transition-opacity"
+              >
+                Send another message
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="bg-white/5 border border-white/10 p-8 md:p-12 rounded-[3rem] space-y-8 backdrop-blur-3xl shadow-2xl relative overflow-hidden">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-brand/10 blur-3xl rounded-full -mr-16 -mt-16" />
+              
+              <div className="space-y-6 relative z-10">
+                <div className="space-y-2">
+                  <label className="font-mono text-[10px] uppercase tracking-[0.2em] opacity-40 ml-4">Brand / Company Name</label>
+                  <input 
+                    required
+                    type="text" 
+                    placeholder="Enter brand name"
+                    className="w-full bg-black/50 border border-white/10 rounded-2xl px-6 py-4 focus:border-brand/50 focus:outline-none transition-all placeholder:opacity-20"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="font-mono text-[10px] uppercase tracking-[0.2em] opacity-40 ml-4">Corporate Email</label>
+                  <input 
+                    required
+                    type="email" 
+                    placeholder="name@company.com"
+                    className="w-full bg-black/50 border border-white/10 rounded-2xl px-6 py-4 focus:border-brand/50 focus:outline-none transition-all placeholder:opacity-20"
+                  />
+                </div>
+                <div className="space-y-2">
+                  <label className="font-mono text-[10px] uppercase tracking-[0.2em] opacity-40 ml-4">Campaign Goal</label>
+                  <textarea 
+                    required
+                    rows={4}
+                    placeholder="What are you looking to achieve?"
+                    className="w-full bg-black/50 border border-white/10 rounded-2xl px-6 py-4 focus:border-brand/50 focus:outline-none transition-all placeholder:opacity-20 resize-none"
+                  />
+                </div>
+              </div>
+
+              <motion.button
+                whileHover={{ scale: 1.02 }}
+                whileTap={{ scale: 0.98 }}
+                type="submit"
+                className="w-full bg-brand text-ink font-sans font-bold py-6 rounded-2xl uppercase tracking-widest text-lg shadow-[0_20px_50px_rgba(var(--color-brand-rgb),0.3)] hover:shadow-[0_20px_60px_rgba(var(--color-brand-rgb),0.5)] transition-all"
+              >
+                Submit Partnership
+              </motion.button>
+
+              <p className="text-center font-sans text-[10px] opacity-40">By submitting, you agree to the Clipnic Terms of Service.</p>
+            </form>
+          )}
+        </motion.div>
       </div>
+
+      <Footer />
     </div>
-  </div>
-);
+  );
+};
 
 const NotFound = () => (
   <div className="min-h-screen bg-ink flex items-center justify-center p-6 text-center text-paper">
@@ -138,7 +236,7 @@ const GetStartedModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => 
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <button
-              onClick={() => window.location.href = 'mailto:clipnicteam@gmail.com?subject=Clipnic Partnership Inquiry: Launching a Viral Campaign'}
+              onClick={() => window.location.href = '/brands'}
               className="group p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border-2 border-ink hover:bg-ink hover:text-paper transition-all text-left space-y-4"
             >
               <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-ink text-paper flex items-center justify-center group-hover:bg-brand group-hover:text-ink transition-colors">
@@ -915,7 +1013,7 @@ export default function App() {
   const isHome = window.location.pathname === '/';
   const isComingSoon = window.location.pathname === '/coming-soon';
 
-  if (isBrandPath || isComingSoon) return <BrandUnderConstruction />;
+  if (isBrandPath || isComingSoon) return <BrandPartnershipPage />;
   if (isPrivacyPath) return <PrivacyOverlay isOpen={true} onClose={() => window.location.href = '/'} />;
   if (isTermsPath) return <TermsOverlay isOpen={true} onClose={() => window.location.href = '/'} />;
   if (!isHome) return <NotFound />;
@@ -929,7 +1027,7 @@ export default function App() {
         <Hero 
           activeView={activeView} 
           setActiveView={setActiveView} 
-          onBrandLaunch={() => window.location.href = 'mailto:clipnicteam@gmail.com?subject=Clipnic Partnership Inquiry: Launching a Viral Campaign'} 
+          onBrandLaunch={() => window.location.href = '/brands'} 
         />
 
         <div id="process">
@@ -1004,7 +1102,7 @@ export default function App() {
         <Contact 
           activeView={activeView} 
           setActiveView={setActiveView} 
-          onBrandLaunch={() => window.location.href = 'mailto:clipnicteam@gmail.com?subject=Clipnic Partnership Inquiry: Launching a Viral Campaign'} 
+          onBrandLaunch={() => window.location.href = '/brands'} 
         />
       </main>
 
