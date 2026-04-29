@@ -236,7 +236,7 @@ const GetStartedModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => 
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <button
-              onClick={() => window.location.href = '/brands'}
+              onClick={() => setBrandGatewayOpen(true)}
               className="group p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border-2 border-ink hover:bg-ink hover:text-paper transition-all text-left space-y-4"
             >
               <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-ink text-paper flex items-center justify-center group-hover:bg-brand group-hover:text-ink transition-colors">
@@ -273,6 +273,177 @@ const GetStartedModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => 
     )}
   </AnimatePresence>
 );
+
+const BrandGatewayModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) => {
+  const [view, setView] = useState<'options' | 'form'>('options');
+  const [formData, setFormData] = useState({ brand: '', email: '', goal: '' });
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
+
+  const handleWebhookSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!formData.brand || !formData.email || !formData.goal) return;
+
+    setStatus('sending');
+    try {
+      const response = await fetch('https://discord.com/api/webhooks/1499094004422148390/mkc18PEy2nbbFP6LuXRIcH9LRLwmAVkdbDv1Chpe3T7mAGexWX5-xMJQuUVTeUcOeXy5', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          content: "<@&1495708238988181686> 🚨 **NEW BRAND INQUIRY RECEIVED**",
+          embeds: [{
+            title: "🚀 Brand Partnership Request",
+            color: 0x5865F2,
+            fields: [
+              { name: "🏢 Brand Name", value: formData.brand, inline: true },
+              { name: "📧 Contact Email", value: formData.email, inline: true },
+              { name: "🎯 Campaign Goal", value: formData.goal }
+            ],
+            timestamp: new Date().toISOString(),
+            footer: { text: "Clipnic Transmission System" }
+          }]
+        })
+      });
+
+      if (response.ok) {
+        setStatus('success');
+        setTimeout(() => {
+          onClose();
+          setView('options');
+          setStatus('idle');
+          setFormData({ brand: '', email: '', goal: '' });
+        }, 2500);
+      } else {
+        setStatus('error');
+      }
+    } catch (err) {
+      setStatus('error');
+    }
+  };
+
+  return (
+    <AnimatePresence>
+      {isOpen && (
+        <div className="fixed inset-0 z-[500] flex items-center justify-center p-6">
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={onClose}
+            className="absolute inset-0 bg-ink/95 backdrop-blur-xl"
+          />
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9, y: 30 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.9, y: 30 }}
+            className="relative w-full max-w-xl bg-paper p-8 md:p-12 rounded-[3rem] shadow-2xl text-ink border-4 border-ink overflow-hidden"
+          >
+            <div className="absolute top-0 right-0 w-32 h-32 bg-brand/10 blur-3xl rounded-full -mr-16 -mt-16" />
+            
+            {view === 'options' ? (
+              <div className="space-y-10 relative z-10">
+                <div className="text-center space-y-4">
+                  <h2 className="font-display text-4xl md:text-5xl tracking-tighter leading-none uppercase">Select <br /> Gateway</h2>
+                  <p className="font-sans opacity-60 text-sm max-w-xs mx-auto">Choose your preferred channel to initiate a partnership.</p>
+                </div>
+
+                <div className="grid grid-cols-1 gap-4">
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => window.open('https://discord.com/users/1497492779226366153', '_blank')}
+                    className="group p-8 rounded-3xl bg-ink text-paper flex items-center justify-between hover:bg-black transition-all"
+                  >
+                    <div className="text-left space-y-1">
+                      <p className="text-[10px] opacity-40 uppercase tracking-widest font-black">Direct Access</p>
+                      <h4 className="font-display text-2xl uppercase">Contact Discord</h4>
+                    </div>
+                    <div className="w-12 h-12 rounded-full bg-[#5865F2] text-white flex items-center justify-center group-hover:rotate-12 transition-transform">
+                      <Share2 size={24} />
+                    </div>
+                  </motion.button>
+
+                  <motion.button
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                    onClick={() => setView('form')}
+                    className="group p-8 rounded-3xl border-2 border-ink flex items-center justify-between hover:bg-ink/5 transition-all"
+                  >
+                    <div className="text-left space-y-1">
+                      <p className="text-[10px] opacity-40 uppercase tracking-widest font-black">Automated</p>
+                      <h4 className="font-display text-2xl uppercase">Inquiry Form</h4>
+                    </div>
+                    <div className="w-12 h-12 rounded-full border-2 border-ink flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <Box size={20} />
+                    </div>
+                  </motion.button>
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-8 relative z-10">
+                <div className="flex items-center justify-between">
+                  <button onClick={() => setView('options')} className="font-mono text-[10px] uppercase tracking-widest opacity-40 hover:opacity-100 flex items-center gap-2">
+                    <ArrowLeft size={12} /> Back
+                  </button>
+                  <h3 className="font-display text-2xl uppercase tracking-tighter">Inquiry Terminal</h3>
+                </div>
+
+                {status === 'success' ? (
+                  <div className="py-12 text-center space-y-4">
+                    <div className="w-16 h-16 bg-brand text-ink rounded-full flex items-center justify-center mx-auto mb-6">
+                      <CheckCircle2 size={32} />
+                    </div>
+                    <h4 className="font-display text-3xl uppercase">Transmission Sent</h4>
+                    <p className="font-sans opacity-60 text-sm">Our team has been notified via Discord.</p>
+                  </div>
+                ) : (
+                  <form onSubmit={handleWebhookSubmit} className="space-y-4">
+                    <input 
+                      required
+                      placeholder="Brand / Company Name"
+                      value={formData.brand}
+                      onChange={e => setFormData({...formData, brand: e.target.value})}
+                      className="w-full bg-ink/5 border border-ink/10 rounded-2xl px-6 py-4 focus:border-ink/50 focus:outline-none transition-all"
+                    />
+                    <input 
+                      required
+                      type="email"
+                      placeholder="Corporate Email"
+                      value={formData.email}
+                      onChange={e => setFormData({...formData, email: e.target.value})}
+                      className="w-full bg-ink/5 border border-ink/10 rounded-2xl px-6 py-4 focus:border-ink/50 focus:outline-none transition-all"
+                    />
+                    <textarea 
+                      required
+                      rows={3}
+                      placeholder="Campaign Goals"
+                      value={formData.goal}
+                      onChange={e => setFormData({...formData, goal: e.target.value})}
+                      className="w-full bg-ink/5 border border-ink/10 rounded-2xl px-6 py-4 focus:border-ink/50 focus:outline-none transition-all resize-none"
+                    />
+                    <button
+                      disabled={status === 'sending'}
+                      className="w-full bg-ink text-paper font-sans font-bold py-5 rounded-2xl uppercase tracking-widest disabled:opacity-50"
+                    >
+                      {status === 'sending' ? 'Transmitting...' : 'Submit Inquiry'}
+                    </button>
+                    {status === 'error' && <p className="text-center text-red-500 text-[10px] uppercase font-bold">Transmission Failed. Try again.</p>}
+                  </form>
+                )}
+              </div>
+            )}
+
+            <button
+              onClick={onClose}
+              className="w-full mt-8 py-2 text-[10px] font-black uppercase tracking-[0.4em] opacity-30 hover:opacity-100 transition-opacity"
+            >
+              Exit Gateway
+            </button>
+          </motion.div>
+        </div>
+      )}
+    </AnimatePresence>
+  );
+};
 
 const Hero = ({ activeView, setActiveView, onBrandLaunch }: { activeView: 'clipper' | 'brand', setActiveView: (v: 'clipper' | 'brand') => void, onBrandLaunch: () => void }) => {
   const containerRef = useRef(null);
@@ -1007,6 +1178,7 @@ export default function App() {
   const [privacyOpen, setPrivacyOpen] = useState(false);
   const [termsOpen, setTermsOpen] = useState(false);
   const [getStartedOpen, setGetStartedOpen] = useState(false);
+  const [brandGatewayOpen, setBrandGatewayOpen] = useState(false);
   const isBrandPath = window.location.pathname === '/brand' || window.location.pathname === '/brands';
   const isPrivacyPath = window.location.pathname === '/privacy';
   const isTermsPath = window.location.pathname === '/terms' || window.location.pathname === '/clipper-terms';
@@ -1027,7 +1199,7 @@ export default function App() {
         <Hero 
           activeView={activeView} 
           setActiveView={setActiveView} 
-          onBrandLaunch={() => window.location.href = '/brands'} 
+          onBrandLaunch={() => setBrandGatewayOpen(true)} 
         />
 
         <div id="process">
@@ -1102,7 +1274,7 @@ export default function App() {
         <Contact 
           activeView={activeView} 
           setActiveView={setActiveView} 
-          onBrandLaunch={() => window.location.href = '/brands'} 
+          onBrandLaunch={() => setBrandGatewayOpen(true)} 
         />
       </main>
 
@@ -1112,6 +1284,10 @@ export default function App() {
       <GetStartedModal 
         isOpen={getStartedOpen} 
         onClose={() => setGetStartedOpen(false)} 
+      />
+      <BrandGatewayModal 
+        isOpen={brandGatewayOpen} 
+        onClose={() => setBrandGatewayOpen(false)} 
       />
 
       {/* Floating Status Indicator */}
