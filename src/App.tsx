@@ -212,7 +212,7 @@ const Navigation = ({ onGetStarted }: { onGetStarted: () => void }) => {
 
 
 
-const GetStartedModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => void }) => (
+const GetStartedModal = ({ isOpen, onClose, onBrandLaunch }: { isOpen: boolean, onClose: () => void, onBrandLaunch: () => void }) => (
   <AnimatePresence>
     {isOpen && (
       <div className="fixed inset-0 z-[300] flex items-center justify-center p-6">
@@ -236,7 +236,7 @@ const GetStartedModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => 
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
             <button
-              onClick={() => setBrandGatewayOpen(true)}
+              onClick={onBrandLaunch}
               className="group p-6 md:p-8 rounded-[1.5rem] md:rounded-[2rem] border-2 border-ink hover:bg-ink hover:text-paper transition-all text-left space-y-4"
             >
               <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-ink text-paper flex items-center justify-center group-hover:bg-brand group-hover:text-ink transition-colors">
@@ -244,7 +244,7 @@ const GetStartedModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => 
               </div>
               <div>
                 <h4 className="font-display text-xl md:text-2xl uppercase tracking-tight">Launch Campaign</h4>
-                <p className="text-[10px] md:text-xs opacity-60 mt-1">Deploy capital. Scale reach.</p>
+                <p className="text-[10px] md:text-xs opacity-60 mt-1">Fund your campaign. Scale reach.</p>
               </div>
             </button>
 
@@ -257,7 +257,7 @@ const GetStartedModal = ({ isOpen, onClose }: { isOpen: boolean, onClose: () => 
               </div>
               <div>
                 <h4 className="font-display text-xl md:text-2xl uppercase tracking-tight">Start Clipping</h4>
-                <p className="text-[10px] md:text-xs opacity-60 mt-1">Post content. Liquidate yield.</p>
+                <p className="text-[10px] md:text-xs opacity-60 mt-1">Post content. Get Paid Instantly.</p>
               </div>
             </button>
           </div>
@@ -732,7 +732,7 @@ const Contact = ({ activeView, setActiveView, onBrandLaunch }: { activeView: 'cl
         <Zap size={40} className="fill-brand text-brand" />
       </motion.div>
       <h2 className="font-display text-[15vw] md:text-[12vw] tracking-tighter leading-[0.85] mb-12 uppercase">
-        {activeView === 'clipper' ? <>Ready to <br /> Liquidate?</> : <>Ready to <br /> Dominate?</>}
+        {activeView === 'clipper' ? <>Ready to <br /> Get Paid?</> : <>Ready to <br /> Dominate?</>}
       </h2>
       <p className="max-w-2xl font-sans text-xl opacity-60 mb-16 font-light">
         {activeView === 'clipper'
@@ -1228,7 +1228,7 @@ export default function App() {
                 <ProcessStep
                   index={2}
                   icon={History}
-                  title="LIQUIDATE YIELD"
+                  title="GET PAID INSTANTLY"
                   desc="As views surge, your dashboard updates. Withdraw your capital through traditional rails or crypto-infrastructure. High CPM rewards for top-performing short-form content."
                   dashPreview={<EarningsDash />}
                 />
@@ -1243,14 +1243,14 @@ export default function App() {
                 <ProcessStep
                   index={0}
                   icon={DollarSign}
-                  title="DEPLOY CAPITAL"
+                  title="FUND YOUR CAMPAIGN"
                   desc="Fund your viral engine. Allocate budgets for bounties and watch as thousands of creators begin producing for your brand. The ultimate strategy for US-based and global brands looking to grow fast."
                   dashPreview={<BrandCampaignDash />}
                 />
                 <ProcessStep
                   index={1}
                   icon={TrendingUp}
-                  title="AUTOMATE REWARDS"
+                  title="PAY ONLY FOR PERFORMANCE"
                   desc="Define your performance benchmarks. Our protocol automatically calculates and distributes yield based on real engagement. Secure performance-based UGC at scale."
                   dashPreview={<BrandMetricsDash />}
                 />
@@ -1266,6 +1266,39 @@ export default function App() {
                     </div>
                   }
                 />
+
+                <section className="py-32 px-6 lg:px-12 bg-white text-ink border-t border-ink/5">
+                  <div className="max-w-6xl mx-auto">
+                    <p className="font-mono text-[10px] uppercase tracking-[0.4em] opacity-40 mb-12">Protocol Standard</p>
+                    <h2 className="font-display text-5xl md:text-8xl tracking-tighter uppercase mb-20">Brand Safety</h2>
+                    
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-16">
+                      <div className="space-y-6">
+                        <div className="w-12 h-12 bg-ink text-paper rounded-2xl flex items-center justify-center">
+                          <CheckCircle2 size={24} />
+                        </div>
+                        <h4 className="font-display text-2xl uppercase">100% Human Traffic</h4>
+                        <p className="font-sans opacity-60 leading-relaxed font-light">"No bots. Our engine verifies all accounts to ensure your views are from real, organic feeds."</p>
+                      </div>
+                      
+                      <div className="space-y-6">
+                        <div className="w-12 h-12 bg-ink text-paper rounded-2xl flex items-center justify-center">
+                          <CheckCircle2 size={24} />
+                        </div>
+                        <h4 className="font-display text-2xl uppercase">Vetted Clippers</h4>
+                        <p className="font-sans opacity-60 leading-relaxed font-light">"Every creator in our network passes strict quality control and adheres to your specific brand guidelines."</p>
+                      </div>
+                      
+                      <div className="space-y-6">
+                        <div className="w-12 h-12 bg-ink text-paper rounded-2xl flex items-center justify-center">
+                          <CheckCircle2 size={24} />
+                        </div>
+                        <h4 className="font-display text-2xl uppercase">Real-Time Tracking</h4>
+                        <p className="font-sans opacity-60 leading-relaxed font-light">"Monitor exactly where your content is being posted through your command center."</p>
+                      </div>
+                    </div>
+                  </div>
+                </section>
               </motion.div>
             )}
           </AnimatePresence>
@@ -1284,6 +1317,10 @@ export default function App() {
       <GetStartedModal 
         isOpen={getStartedOpen} 
         onClose={() => setGetStartedOpen(false)} 
+        onBrandLaunch={() => {
+          setGetStartedOpen(false);
+          setBrandGatewayOpen(true);
+        }}
       />
       <BrandGatewayModal 
         isOpen={brandGatewayOpen} 
