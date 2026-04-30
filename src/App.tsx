@@ -1299,6 +1299,53 @@ export default function App() {
                     </div>
                   </div>
                 </section>
+
+                <section className="py-32 px-6 lg:px-12 bg-ink text-paper">
+                  <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+                    <div>
+                      <p className="font-mono text-[10px] uppercase tracking-[0.4em] text-brand mb-8">Performance Layer</p>
+                      <h2 className="font-display text-5xl md:text-7xl tracking-tighter uppercase mb-12 leading-none">Analytics <br /> & Scale</h2>
+                      <p className="font-sans text-xl opacity-60 leading-relaxed mb-12 font-light">
+                        Monitor every impression in real-time. Our intelligence layer provides deep insights into which creatives are driving the most value, allowing you to scale your viral reach with surgical precision.
+                      </p>
+                      <button 
+                        onClick={() => setBrandGatewayOpen(true)}
+                        className="px-10 py-5 bg-brand text-ink font-bold uppercase tracking-widest text-xs rounded-full hover:bg-white transition-all"
+                      >
+                        Launch Command Center
+                      </button>
+                    </div>
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-brand/20 blur-[120px] rounded-full animate-pulse" />
+                      <div className="relative bg-white/[0.03] border border-white/10 rounded-[3rem] p-10 overflow-hidden backdrop-blur-xl">
+                        <div className="space-y-8">
+                          <div className="flex justify-between items-end">
+                            <div>
+                              <p className="text-[10px] uppercase tracking-widest opacity-40 mb-1">Growth Velocity</p>
+                              <p className="text-4xl font-bold font-mono text-brand">+842%</p>
+                            </div>
+                            <TrendingUp className="text-brand" size={32} />
+                          </div>
+                          <div className="h-40 flex items-end gap-2">
+                            {[40, 70, 45, 90, 65, 80, 95].map((h, i) => (
+                              <div key={i} className="flex-1 bg-brand/20 rounded-t-lg transition-all hover:bg-brand" style={{ height: `${h}%` }} />
+                            ))}
+                          </div>
+                          <div className="grid grid-cols-2 gap-6 pt-6 border-t border-white/5">
+                            <div>
+                              <p className="text-[10px] uppercase tracking-widest opacity-40 mb-1">Total Reach</p>
+                              <p className="text-xl font-bold font-mono">12.4M</p>
+                            </div>
+                            <div>
+                              <p className="text-[10px] uppercase tracking-widest opacity-40 mb-1">Active Nodes</p>
+                              <p className="text-xl font-bold font-mono">1,204</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </section>
               </motion.div>
             )}
           </AnimatePresence>
