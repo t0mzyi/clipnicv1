@@ -247,10 +247,10 @@ const Navigation = ({ onGetStarted, activeView }: { onGetStarted: () => void, ac
   return (
     <nav className="fixed top-0 left-0 w-full z-50 mix-blend-difference text-white py-8 px-6 lg:px-12 flex justify-between items-center">
       <SEO 
-        title={activeView === 'clipper' ? "Clipnic | Edit Content, Get Paid" : "Clipnic | Scale Your Brand Viral Velocity"}
+        title={activeView === 'clipper' ? "Clipnic | Edit Content, Get Paid" : "Clipnic | A Content Distribution Company"}
         description={activeView === 'clipper' 
           ? "Join the world's leading clipping company. Edit short form content and get paid based on views. No experience needed." 
-          : "The premier content distribution infrastructure for brands. Scale your viral reach through our decentralized network of clippers."
+          : "A content distribution company built for modern brands. Deploy hundreds of creators to turn your raw marketing footage into millions of organic views."
         }
         url={activeView === 'clipper' ? "/" : "/brands"}
       />
