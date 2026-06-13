@@ -354,11 +354,12 @@ const GetStartedModal = ({ isOpen, onClose, onBrandLaunch }: { isOpen: boolean, 
 
 const TIMEZONE_OPTIONS = [
   { value: "Asia/Kolkata", label: "Asia/Kolkata (IST)", flag: "🇮🇳" },
+  { value: "Etc/GMT", label: "Greenwich Mean Time (GMT)", flag: "🇬🇧" },
+  { value: "Europe/London", label: "British Summer Time (BST)", flag: "🇬🇧" },
   { value: "America/New_York", label: "America/New_York (EST)", flag: "🇺🇸" },
   { value: "America/Chicago", label: "America/Chicago (CST)", flag: "🇺🇸" },
   { value: "America/Denver", label: "America/Denver (MST)", flag: "🇺🇸" },
   { value: "America/Los_Angeles", label: "America/Los_Angeles (PST)", flag: "🇺🇸" },
-  { value: "Europe/London", label: "Europe/London (GMT/BST)", flag: "🇬🇧" },
   { value: "Europe/Paris", label: "Europe/Paris (CET)", flag: "🇫🇷" },
   { value: "Asia/Dubai", label: "Asia/Dubai (GST)", flag: "🇦🇪" },
   { value: "Asia/Singapore", label: "Asia/Singapore (SGT)", flag: "🇸🇬" },
